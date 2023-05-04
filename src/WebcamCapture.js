@@ -7,7 +7,9 @@ function WebcamCapture() {
 
   const handleCaptureClick = () => {
     const context = canvasRef.current.getContext("2d");
-    context.drawImage(videoRef.current, 0, 0, 640, 480);
+    canvasRef.current.width = videoRef.current.videoWidth;
+    canvasRef.current.height = videoRef.current.videoHeight;
+    context.drawImage(videoRef.current, 0, 0);
     const dataUrl = canvasRef.current.toDataURL();
     setImageSrc(dataUrl);
     downloadImage(dataUrl);
