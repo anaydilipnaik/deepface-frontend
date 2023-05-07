@@ -37,12 +37,45 @@ function WebcamCapture() {
     .then(handleVideoStream)
     .catch(handleError);
 
+  console.log("videoRef: ", videoRef);
+
   return (
-    <div>
-      <video ref={videoRef} autoPlay />
-      <button onClick={handleCaptureClick}>Capture</button>
-      {imageSrc && <img src={imageSrc} alt="captured" />}
-      <canvas ref={canvasRef} style={{ display: "none" }} />
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      <h1>Webcam Capture</h1>
+      <div style={{ position: "relative" }}>
+        <video
+          ref={videoRef}
+          autoPlay
+          style={{ width: "100%", maxWidth: "640px", height: "auto" }}
+        />
+
+        <canvas ref={canvasRef} style={{ display: "none" }} />
+      </div>
+      <button
+        onClick={handleCaptureClick}
+        style={{
+          marginTop: "1rem",
+          padding: "0.5rem 1rem",
+          fontSize: "1.2rem",
+          fontWeight: "bold",
+          borderRadius: "0.5rem",
+          backgroundColor: "darkblue",
+          color: "white",
+          border: "none",
+          cursor: "pointer",
+        }}
+      >
+        Capture
+      </button>
+      {imageSrc && (
+        <img
+          src={imageSrc}
+          alt="captured"
+          style={{ marginTop: "1rem", maxWidth: "100%" }}
+        />
+      )}
     </div>
   );
 }
