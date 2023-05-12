@@ -112,7 +112,9 @@ function WebcamCapture() {
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      <h1>Webcam Capture</h1>
+      <h1>
+        {"Intelligent Surveillance Security Systems" + " > " + "Webcam Capture"}
+      </h1>
       {!imageSrc ? (
         <>
           <div style={{ position: "relative" }}>
